@@ -1,42 +1,99 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/* App layout */
+.app {
+  min-height: 100vh;
+  background: #fff;
+  color: #111;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: #fff;
+  border-bottom: 1px solid #eee;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.header__inner {
+  height: 56px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 0 16px;
+}
+
+.header__brand {
+  font-weight: 700;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.header__search {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.header__input {
+  width: min(520px, 70vw);
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-right: none;
+  border-radius: 999px 0 0 999px;
+  outline: none;
+}
+
+.header__btn {
+  padding: 10px 14px;
+  border: 1px solid #ddd;
+  border-radius: 0 999px 999px 0;
+  background: #f7f7f7;
+  cursor: pointer;
+}
+
+.layout {
+  display: flex;
+}
+
+.sidebar {
+  width: 240px;
+  border-right: 1px solid #eee;
+  min-height: calc(100vh - 56px);
+  padding: 12px;
+  display: none; /* mobile: hidden */
+}
+
+.sidebar__nav {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.sidebar__link {
+  padding: 10px 12px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.sidebar__link:hover {
+  background: #f5f5f5;
+}
+
+.sidebar__link--active {
+  background: #f0f0f0;
+  font-weight: 600;
+}
+
+.main {
+  flex: 1;
+  padding: 16px;
+}
+
+/* desktop: show sidebar */
+@media (min-width: 768px) {
+  .sidebar {
+    display: block;
   }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
 }
